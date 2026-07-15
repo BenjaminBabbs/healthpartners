@@ -1,0 +1,11 @@
+venv/
+.venv/
+hospital_data/
+run_metadata.json
+*.log
+__pycache__/
+*.pyc
+.env
+.DS_Store
+.claude/
+CLAUDE.md
