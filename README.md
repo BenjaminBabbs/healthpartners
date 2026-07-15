@@ -24,7 +24,7 @@ export $(cat .env | grep -v '^#' | xargs)   # Windows: set each variable in Syst
 
 ## Configuration
 
-Every setting can be supplied as a CLI flag or an environment variable. CLI flags take precedence when both are provided. All values are required — the script exits with a clear error if any are missing.
+Every setting can be supplied as a CLI flag or an environment variable. CLI flags take precedence when both are provided. All values are required: the script exits with a clear error if any are missing.
 
 | CLI Flag | Env Variable | Description |
 |---|---|---|
@@ -90,6 +90,24 @@ All CSV headers are converted to `snake_case` on download:
 | `Patients' rating of the facility linear mean score` | `patients_rating_of_the_facility_linear_mean_score` |
 | `HCAHPS Answer Percent` | `hcahps_answer_percent` |
 | `# of Completed Surveys` | `of_completed_surveys` |
+
+## Sample Output
+
+A sample of the output from `Hospital_General_Information.csv` is included in [`sample_output.csv`](sample_output.csv). The full file has 36 snake_case columns — a few key ones:
+
+| Column | Example Value |
+|---|---|
+| `facility_id` | `010001` |
+| `facility_name` | `SOUTHEAST HEALTH MEDICAL CENTER` |
+| `city_town` | `DOTHAN` |
+| `state` | `AL` |
+| `hospital_type` | `Acute Care Hospitals` |
+| `hospital_overall_rating` | `4` |
+| `emergency_services` | `Yes` |
+
+## Future State Architecture
+
+For a production deployment using Databricks Jobs, S3 or ADLS Gen2, and Delta Lake, see [`FUTURE_STATE_ARCHITECTURE.md`](FUTURE_STATE_ARCHITECTURE.md).
 
 ## How it works
 
